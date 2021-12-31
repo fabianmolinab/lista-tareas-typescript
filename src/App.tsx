@@ -1,6 +1,4 @@
-
 export const App = () => {
-  return (
-    <h1>Hola Fabian</h1>
-  )
+  const Fabian = 'Hola soy fabian'
+  return <h1>{Fabian}</h1>
 }

@@ -1,10 +1,13 @@
 {
   "name": "lista-tareas-typescript",
-  "version": "0.0.0",
+  "version": "1.0",
+  "auth": "Fabian Andres Molina Bermudez",
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "eslint": "eslint . --fix",
+    "eslintsrc": "eslint src/* --fix"
   },
   "dependencies": {
     "react": "^17.0.2",
@@ -13,6 +16,7 @@
   "devDependencies": {
     "@types/react": "^17.0.33",
     "@types/react-dom": "^17.0.10",
+    "@types/styled-components": "^5.1.19",
     "@typescript-eslint/eslint-plugin": "^5.8.1",
     "@typescript-eslint/parser": "^5.8.1",
     "@vitejs/plugin-react": "^1.0.7",
@@ -22,6 +26,7 @@
     "eslint-plugin-node": "^11.1.0",
     "eslint-plugin-promise": "^5.2.0",
     "eslint-plugin-react": "^7.28.0",
+    "styled-components": "^5.3.3",
     "typescript": "^4.4.4",
     "vite": "^2.7.2"
   }
