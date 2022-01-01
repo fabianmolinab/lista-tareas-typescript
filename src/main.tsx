@@ -6,7 +6,7 @@ import { GlobalStyles } from './GlobalStyles'
 ReactDOM.render(
   <React.StrictMode>
     <GlobalStyles />
-    <App />
+    <App title="Fabian" subtitle="Es bonito" />
   </React.StrictMode>,
   document.getElementById('root')
 )
