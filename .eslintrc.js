@@ -9,10 +9,7 @@ module.exports = {
     es2021: true,
     node: true
   },
-  extends: [
-    'plugin:react/recommended',
-    'standard'
-  ],
+  extends: ['plugin:react/recommended', 'standard'],
   parser: '@typescript-eslint/parser',
   parserOptions: {
     ecmaFeatures: {
@@ -27,10 +24,7 @@ module.exports = {
     }
   },
 
-  plugins: [
-    'react',
-    '@typescript-eslint'
-  ],
+  plugins: ['react', '@typescript-eslint'],
   rules: {
     'react/react-in-jsx-scope': RULES.OFF,
     'react/prop-types': RULES.OFF,
