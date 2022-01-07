@@ -23,12 +23,21 @@ module.exports = {
       version: 'detect'
     }
   },
-
   plugins: ['react', '@typescript-eslint'],
   rules: {
     'react/react-in-jsx-scope': RULES.OFF,
     'react/prop-types': RULES.OFF,
     'react/jsx-uses-react': RULES.ERROR,
-    'react/jsx-uses-vars': RULES.ERROR
+    'react/jsx-uses-vars': RULES.ERROR,
+    'sort-imports': [
+      'error',
+      {
+        ignoreCase: true,
+        ignoreDeclarationSort: true,
+        ignoreMemberSort: false,
+        memberSyntaxSortOrder: ['none', 'all', 'multiple', 'single'],
+        allowSeparatedGroups: false
+      }
+    ]
   }
 }

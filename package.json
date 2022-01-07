@@ -6,7 +6,7 @@
     "dev": "vite",
     "build": "tsc && vite build",
     "preview": "vite preview",
-    "eslint": "eslint . --fix",
+    "lint": "eslint --ext js,jsx,ts,tsx src/",
     "eslintsrc": "eslint src/* --fix"
   },
   "dependencies": {
@@ -20,7 +20,7 @@
     "@typescript-eslint/eslint-plugin": "^5.8.1",
     "@typescript-eslint/parser": "^5.8.1",
     "@vitejs/plugin-react": "^1.0.7",
-    "eslint": "^7.32.0",
+    "eslint": "^8.6.0",
     "eslint-config-standard": "^16.0.3",
     "eslint-plugin-import": "^2.25.3",
     "eslint-plugin-node": "^11.1.0",
