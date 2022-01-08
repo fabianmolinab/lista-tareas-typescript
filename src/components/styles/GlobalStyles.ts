@@ -14,8 +14,10 @@ export const GlobalStyles = createGlobalStyle`
     font-size: 1em;
   }
   body {
-    background-color: #2C3A47;
-    color: #F8EFBA;
+    background-color: #2E3440;
+    color: #D8DEE9;
+    max-width: 1200px;
+    margin: 0 auto;
   }
 
 `

@@ -1,10 +1,19 @@
 import { DivContenedor } from './styles/DivContenedor'
 
-export const TaskForm = (props: {}) => {
+export const TaskForm = () => {
+  const handleOnChange = () => {}
+  const handleSubmit = () => {}
   return (
     <DivContenedor>
-      <input type="text" />
-      <p>Task Form</p>
+      <h1>Add Task</h1>
+      <form onSubmit={handleSubmit}>
+        <input
+          type="text"
+          placeholder="Add to task"
+          name="title"
+          onChange={handleOnChange}
+        />
+      </form>
     </DivContenedor>
   )
 }
