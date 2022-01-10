@@ -1,17 +1,16 @@
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
 import { colors } from '../const/colors'
 import { Task } from '../interfaces/Task.interface'
-import { DivContenedor } from './styles/DivContenedor'
 
 interface Props {
-  task: Task;
+  tasks: Task;
 }
 
-export const TaskCard = ({ task }: Props) => {
+export const TaskCard = ({ tasks }: Props) => {
   return (
     <DivCard>
-      <h2>{task.title}</h2>
-      <p> {task.description}</p>
+      <h2>{tasks.title}</h2>
+      <p> {tasks.description}</p>
       <Button>Delete</Button>
     </DivCard>
   )
@@ -23,7 +22,7 @@ export const Button = styled.button`
   background-color: ${colors.red};
   border: 1.5px solid ${colors.red};
   border-radius: 6px;
-  color: ${colors.white1};
+  color: ${colors.background1};
   cursor: pointer;
   font-size: 1em;
   padding: 5px 15px;
@@ -31,9 +30,14 @@ export const Button = styled.button`
 
   &:hover {
     font-weight: 700;
-    //border-width: medium;
-    //transform: scale(1, 1.1);
   }
+
+  ${(props) =>
+    props.send &&
+    css`
+      background-color: ${colors.green};
+      border: 1.5px solid ${colors.green};
+    `}
 `
 export const DivCard = styled.div`
   background-color: ${colors.background1};
