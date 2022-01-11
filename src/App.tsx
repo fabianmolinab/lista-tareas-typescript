@@ -31,5 +31,4 @@ export const App = ({ title }: Props) => {
 }
 const Container = styled.main`
   display: flex;
-  margin: 0 auto;
 `

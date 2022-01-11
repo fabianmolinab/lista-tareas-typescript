@@ -8,8 +8,13 @@ export const Form = () => {
   }
   return (
     <FormStyle onSubmit={handleSubmit}>
-      <InputTitle type="text" placeholder="Title" name="title" />
-      <TextArea placeholder="Add note" />
+      <InputTitle
+        type="text"
+        placeholder="Title"
+        name="title"
+        autoComplete="off"
+      />
+      <TextArea placeholder="Add note" autoComplete="off" />
       <Button send>Save</Button>
     </FormStyle>
   )
@@ -30,10 +35,16 @@ const InputTitle = styled.input`
   outline: none;
 `
 const TextArea = styled.textarea`
+  appearance: none;
   background: transparent;
   border: transparent;
   color: ${colors.white0};
+  cursor: text;
+  display: block;
   font-family: "Open Sans", sans-serif;
   font-size: 1em;
+  height: 90px;
+  overflow: auto;
   outline: none;
+  resize: none;
 `
