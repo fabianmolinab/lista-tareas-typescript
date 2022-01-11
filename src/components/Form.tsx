@@ -40,7 +40,6 @@ const TextArea = styled.textarea`
   border: transparent;
   color: ${colors.white0};
   cursor: text;
-  display: block;
   font-family: "Open Sans", sans-serif;
   font-size: 1em;
   height: 90px;

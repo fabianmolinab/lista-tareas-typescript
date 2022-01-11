@@ -4,13 +4,14 @@ import { Task } from '../interfaces/Task.interface'
 
 interface Props {
   tasks: Task;
+  description: String;
 }
 
-export const TaskCard = ({ tasks }: Props) => {
+export const TaskCard = ({ tasks, description }: Props) => {
   return (
     <DivCard>
       <h2>{tasks.title}</h2>
-      <p> {tasks.description}</p>
+      <p> {description}</p>
       <Button>Delete</Button>
     </DivCard>
   )
@@ -19,8 +20,8 @@ export const TaskCard = ({ tasks }: Props) => {
 // Styles----------------------------
 
 export const Button = styled.button`
-  background-color: ${colors.red};
-  border: 1.5px solid ${colors.red};
+  background-color: ${colors.orange};
+  border: 1.5px solid ${colors.orange};
   border-radius: 6px;
   color: ${colors.background1};
   cursor: pointer;
@@ -35,8 +36,8 @@ export const Button = styled.button`
   ${(props) =>
     props.send &&
     css`
-      background-color: ${colors.green};
-      border: 1.5px solid ${colors.green};
+      background-color: ${colors.frost0};
+      border: 1.5px solid ${colors.frost0};
     `}
 `
 export const DivCard = styled.div`
