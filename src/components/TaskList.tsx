@@ -9,15 +9,26 @@ interface Props {
 export const TaskList = ({ tasks }: Props) => {
   return (
     <ContenedorTask>
-      <TaskCard tasks={tasks} description={'Fabian es lindo'} />
+      <TaskCard tasks={tasks} description={'Vamos a ver como va todo'} />
       <TaskCard
         tasks={tasks}
         description={
-          'Fabian sabe lo quiere, para donde va y con quien no se deja intimdar por cualquier marrano y ni ante cualquier circuntancia vamos con todo bebes'
+          'Queremos todo lo que debemos tener para obtener las cosas que queremos'
         }
       />
-      <TaskCard tasks={tasks} />
-      <TaskCard tasks={tasks} />
+      <TaskCard
+        tasks={tasks}
+        description={
+          'Somos los mejores del mundo y debemos corresponder nuestras cosas'
+        }
+      />
+      <TaskCard
+        tasks={tasks}
+        description={
+          'No se por que cada uno me da error, sabemos lo que queremos pero debemos hacerlo'
+        }
+      />
+      <TaskCard tasks={tasks} description={'Y que estas haciendo ahora?'} />
       <TaskCard tasks={tasks} />
     </ContenedorTask>
   )
@@ -26,6 +37,7 @@ export const TaskList = ({ tasks }: Props) => {
 const ContenedorTask = styled.div`
   width: 65%;
   display: grid;
+  grid-template-rows: auto;
   grid-gap: 10px;
   grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
 `
