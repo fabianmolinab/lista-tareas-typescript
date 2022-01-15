@@ -20,4 +20,15 @@ export const GlobalStyles = createGlobalStyle`
     margin: 0 auto;
   }
 
+  .contenedor-grid {
+    display: flex;
+    margin-left: -30px; 
+    width: auto;
+  }
+
+  .contenedor-grid-columns {
+    padding-left: 30px; 
+    background-clip: padding-box;
+}
+
 `

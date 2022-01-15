@@ -1,14 +1,25 @@
 import styled from 'styled-components'
 import { Task } from '../interfaces/Task.interface'
 import { TaskCard } from './TaskCard'
+import Mansory from 'react-masonry-css'
 
 interface Props {
   tasks: Task;
 }
 
 export const TaskList = ({ tasks }: Props) => {
+  const breakpointColumnsObj = {
+    default: 4,
+    1100: 3,
+    700: 2,
+    500: 1
+  }
   return (
-    <ContenedorTask>
+    <Mansory
+      breakpointCols={breakpointColumnsObj}
+      className="contenedor-grid"
+      columnClassName="contenedor-grid-columns"
+    >
       <TaskCard tasks={tasks} description={'Vamos a ver como va todo'} />
       <TaskCard
         tasks={tasks}
@@ -29,15 +40,6 @@ export const TaskList = ({ tasks }: Props) => {
         }
       />
       <TaskCard tasks={tasks} description={'Y que estas haciendo ahora?'} />
-      <TaskCard tasks={tasks} />
-    </ContenedorTask>
+    </Mansory>
   )
 }
-
-const ContenedorTask = styled.div`
-  width: 65%;
-  display: grid;
-  grid-template-rows: auto;
-  grid-gap: 10px;
-  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-`
