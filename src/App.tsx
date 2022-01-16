@@ -12,12 +12,14 @@ interface Props {
 }
 
 export const App = ({ title }: Props) => {
-  const [tasks, setTasks] = useState<Task>({
-    id: uuidv4(),
-    title: 'Fabian es lindo',
-    description: 'Lear React',
-    completed: false
-  })
+  const [tasks, setTasks] = useState<Task[]>([
+    {
+      id: uuidv4(),
+      title: 'Fabian es lindo',
+      description: 'Lear React',
+      completed: false
+    }
+  ])
 
   return (
     <>

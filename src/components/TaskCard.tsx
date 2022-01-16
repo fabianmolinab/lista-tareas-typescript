@@ -4,20 +4,26 @@ import { Task } from '../interfaces/Task.interface'
 
 interface Props {
   tasks: Task;
-  description: String;
 }
 
-export const TaskCard = ({ tasks, description }: Props) => {
+export const TaskCard = ({ tasks }: Props) => {
   return (
     <DivCard>
       <h2>{tasks.title}</h2>
-      <p> {description}</p>
+      <p> {tasks.description}</p>
       <Button>Delete</Button>
     </DivCard>
   )
 }
 
 // Styles----------------------------
+export const DivCard = styled.div`
+  background-color: ${colors.background1};
+  border-radius: 6px;
+  padding: 15px;
+  margin-bottom: 10px;
+  box-shadow: rgb(15 17 21 / 25%) 0px 4px 6px, rgb(15 17 21 / 10%) 0px 5px 7px;
+`
 
 export const Button = styled.button`
   background-color: ${colors.orange};
@@ -39,11 +45,4 @@ export const Button = styled.button`
       background-color: ${colors.frost0};
       border: 1.5px solid ${colors.frost0};
     `}
-`
-export const DivCard = styled.div`
-  background-color: ${colors.background1};
-  border-radius: 6px;
-  padding: 15px;
-  margin-bottom: 10px;
-  box-shadow: rgb(15 17 21 / 25%) 0px 4px 6px, rgb(15 17 21 / 10%) 0px 5px 7px;
 `
