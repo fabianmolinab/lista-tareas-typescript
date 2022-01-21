@@ -16,7 +16,7 @@ export const TaskCard = ({ tasks }: Props) => {
   )
 }
 
-// Styles----------------------------
+// Styles---------------------
 export const DivCard = styled.div`
   background-color: ${colors.background1};
   border-radius: 6px;

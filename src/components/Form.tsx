@@ -1,20 +1,41 @@
+import { ChangeEvent } from 'react'
 import styled from 'styled-components'
 import { colors } from '../const/colors'
 import { Button } from './TaskCard'
 
-export const Form = () => {
-  const handleSubmit: (e: any) => any = function (e) {
-    e.preventDefault()
+interface Props {
+  task: [];
+  useTask: {};
+}
+
+// Tipo de dato de los eventos
+type HandleInputChange = ChangeEvent<HTMLInputElement | HTMLTextAreaElement>;
+
+export const Form = ({ task, useTask }: Props) => {
+  const handleChange = ({ target: { name, value } }: HandleInputChange) => {
+    useTask({
+      ...task,
+      [name]: value
+    })
   }
+  console.log(task)
   return (
-    <FormStyle onSubmit={handleSubmit}>
+    <FormStyle>
       <InputTitle
         type="text"
         placeholder="Title"
         name="title"
         autoComplete="off"
+        value={task.title}
+        onChange={handleChange}
       />
-      <TextArea placeholder="Add note" autoComplete="off" />
+      <TextArea
+        placeholder="Add note"
+        autoComplete="off"
+        name="description"
+        value={task.description}
+        onChange={handleChange}
+      />
       <Button send>Save</Button>
     </FormStyle>
   )

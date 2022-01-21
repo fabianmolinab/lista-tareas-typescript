@@ -1,4 +1,3 @@
-import styled from 'styled-components'
 import { Task } from '../interfaces/Task.interface'
 import { TaskCard } from './TaskCard'
 import Mansory from 'react-masonry-css'
@@ -14,7 +13,6 @@ export const TaskList = ({ tasks }: Props) => {
     700: 2,
     500: 1
   }
-  console.log(tasks)
   return (
     <Mansory
       breakpointCols={breakpointColumnsObj}
