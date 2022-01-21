@@ -2,10 +2,11 @@ import { ChangeEvent } from 'react'
 import styled from 'styled-components'
 import { colors } from '../const/colors'
 import { Button } from './TaskCard'
+import { Tareas } from './TaskForm'
 
 interface Props {
-  task: [];
-  useTask: {};
+  task: Tareas;
+  useTask: (task: Tareas) => object;
 }
 
 // Tipo de dato de los eventos
@@ -18,7 +19,7 @@ export const Form = ({ task, useTask }: Props) => {
       [name]: value
     })
   }
-  console.log(task)
+
   return (
     <FormStyle>
       <InputTitle

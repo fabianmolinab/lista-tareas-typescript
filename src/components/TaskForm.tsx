@@ -3,8 +3,13 @@ import styled from 'styled-components'
 import { colors } from '../const/colors'
 import { Form } from './Form'
 
+export interface Tareas {
+  title: string;
+  description: string;
+}
+
 export const TaskForm = () => {
-  const [task, useTask] = useState({
+  const [task, useTask] = useState<Tareas>({
     title: '',
     description: ''
   })
