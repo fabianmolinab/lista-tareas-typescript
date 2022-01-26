@@ -1,6 +1,6 @@
+import Mansory from 'react-masonry-css'
 import { Task } from '../interfaces/Task.interface'
 import { TaskCard } from './TaskCard'
-import Mansory from 'react-masonry-css'
 
 interface Props {
   tasks: Task[];
