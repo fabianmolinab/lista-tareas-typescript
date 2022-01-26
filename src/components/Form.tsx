@@ -1,27 +1,42 @@
 import { ChangeEvent } from 'react'
 import styled from 'styled-components'
+import { v4 as uuidv4 } from 'uuid'
 import { colors } from '../const/colors'
+import { Task } from '../interfaces/Task.interface'
 import { Button } from './TaskCard'
 import { Tareas } from './TaskForm'
 
 interface Props {
   task: Tareas;
-  useTask: (task: Tareas) => object;
+  useTask: (task: Tareas) => void;
+  aNewTask: (task: Task) => void;
 }
 
-// Tipo de dato de los eventos
+// Tipo de dato de los eventos del input y text area
 type HandleInputChange = ChangeEvent<HTMLInputElement | HTMLTextAreaElement>;
 
-export const Form = ({ task, useTask }: Props) => {
-  const handleChange = ({ target: { name, value } }: HandleInputChange) => {
+// Tipo de dato del evento submit
+type HandleSubmitChange = ChangeEvent<HTMLFormElement>;
+
+export const Form = ({ task, useTask, aNewTask }: Props) => {
+  const handleSubmit = (e: HandleSubmitChange) => {
+    e.preventDefault()
+    aNewTask({
+      id: uuidv4(),
+      title: task.title,
+      description: task.description,
+      completed: false
+    })
+  }
+  const handleChange = ({ target }: HandleInputChange) => {
     useTask({
       ...task,
-      [name]: value
+      [target.name]: target.value
     })
   }
 
   return (
-    <FormStyle>
+    <FormStyle onSubmit={handleSubmit}>
       <InputTitle
         type="text"
         placeholder="Title"

@@ -4,9 +4,10 @@ import { Task } from '../interfaces/Task.interface'
 
 interface Props {
   tasks: Task;
+  key: string;
 }
 
-export const TaskCard = ({ tasks }: Props) => {
+export const TaskCard = ({ tasks, key }: Props) => {
   return (
     <DivCard>
       <h2>{tasks.title}</h2>

@@ -11,13 +11,18 @@ interface Props {
 }
 
 export const App = ({ title }: Props) => {
-  const [tasks, setTasks] = useState<Task[]>([{}])
+  const [tasks, setTasks] = useState<Task[]>([])
+
+  // Funcion para añadir una nueva tarea
+  const aNewTask = (task: Task) => {
+    setTasks([...tasks, task])
+  }
 
   return (
     <>
       <Nav title={title} />
       <Container>
-        <TaskForm />
+        <TaskForm aNewTask={aNewTask} />
         <TaskList tasks={tasks} />
       </Container>
     </>
