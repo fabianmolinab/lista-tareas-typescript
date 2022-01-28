@@ -21,12 +21,19 @@ type HandleSubmitChange = ChangeEvent<HTMLFormElement>;
 export const Form = ({ task, useTask, aNewTask }: Props) => {
   const handleSubmit = (e: HandleSubmitChange) => {
     e.preventDefault()
-    aNewTask({
-      id: uuidv4(),
-      title: task.title,
-      description: task.description,
-      completed: false
-    })
+
+    if (task.title && task.description !== '') {
+      aNewTask({
+        id: uuidv4(),
+        title: task.title,
+        description: task.description,
+        completed: false
+      })
+      useTask({
+        title: '',
+        description: ''
+      })
+    }
   }
   const handleChange = ({ target }: HandleInputChange) => {
     useTask({
