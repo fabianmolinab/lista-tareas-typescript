@@ -22,7 +22,6 @@ export const DivCard = styled.div`
   background-color: ${colors.background1};
   border-radius: 6px;
   padding: 15px;
-  margin-bottom: 10px;
   box-shadow: rgb(15 17 21 / 25%) 0px 4px 6px, rgb(15 17 21 / 10%) 0px 5px 7px;
 `
 

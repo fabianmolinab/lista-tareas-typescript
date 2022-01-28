@@ -22,13 +22,19 @@ export const GlobalStyles = createGlobalStyle`
 
   .contenedor-grid {
     display: flex;
-    margin-left: -30px; 
-    width: auto;
+    width: 100%;
   }
 
   .contenedor-grid-columns {
-    padding-left: 30px; 
+    word-wrap: break-word;
+    width: 240px !important;
+    height: auto;
+    padding-left: 10px; 
     background-clip: padding-box;
-}
+  }
+
+  .contenedor-grid-columns > div {
+    margin-bottom: 10px;
+  }
 
 `
