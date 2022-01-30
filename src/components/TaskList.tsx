@@ -4,15 +4,18 @@ import { TaskCard } from './TaskCard'
 
 interface Props {
   tasks: Task[];
+  setTasks: (tasks: Task) => void;
+  deleteTask: (id: number) => void;
 }
 
-export const TaskList = ({ tasks }: Props) => {
+export const TaskList = ({ tasks, setTasks, deleteTask }: Props) => {
   const breakpointColumnsObj = {
     default: 4,
     1100: 3,
     700: 2,
     500: 1
   }
+
   return (
     <Mansory
       breakpointCols={breakpointColumnsObj}
@@ -20,7 +23,12 @@ export const TaskList = ({ tasks }: Props) => {
       columnClassName="contenedor-grid-columns"
     >
       {tasks.map((task) => (
-        <TaskCard tasks={task} key={task.id} />
+        <TaskCard
+          tasks={task}
+          key={task.id}
+          setTasks={setTasks}
+          deleteTask={deleteTask}
+        />
       ))}
     </Mansory>
   )

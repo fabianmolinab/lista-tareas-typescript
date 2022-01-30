@@ -18,12 +18,22 @@ export const App = ({ title }: Props) => {
     setTasks([...tasks, task])
   }
 
+  // Funcion para eliminar una tarea
+  const deleteTask = (id: number) => {
+    setTasks(
+      tasks.filter((task) => {
+        if (task.id !== id) {
+          return task
+        }
+      })
+    )
+  }
   return (
     <>
       <Nav title={title} />
       <Container>
         <TaskForm aNewTask={aNewTask} />
-        <TaskList tasks={tasks} />
+        <TaskList tasks={tasks} setTasks={setTasks} deleteTask={deleteTask} />
       </Container>
     </>
   )

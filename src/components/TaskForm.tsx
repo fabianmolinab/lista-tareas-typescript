@@ -13,12 +13,14 @@ export interface Tareas {
   description: string;
 }
 
+export const initialStateForm: Tareas = {
+  title: '',
+  description: ''
+}
 export const TaskForm = ({ aNewTask }: Props) => {
   // Hook que actualiza el state del input y textarea
-  const [task, useTask] = useState<Tareas>({
-    title: '',
-    description: ''
-  })
+
+  const [task, useTask] = useState<Tareas>(initialStateForm)
 
   return (
     <DivContenedor>

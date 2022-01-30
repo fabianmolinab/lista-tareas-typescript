@@ -1,10 +1,9 @@
 import { ChangeEvent } from 'react'
 import styled from 'styled-components'
-import { v4 as uuidv4 } from 'uuid'
 import { colors } from '../const/colors'
 import { Task } from '../interfaces/Task.interface'
 import { Button } from './TaskCard'
-import { Tareas } from './TaskForm'
+import { initialStateForm, Tareas } from './TaskForm'
 
 interface Props {
   task: Tareas;
@@ -18,21 +17,20 @@ type HandleInputChange = ChangeEvent<HTMLInputElement | HTMLTextAreaElement>;
 // Tipo de dato del evento submit
 type HandleSubmitChange = ChangeEvent<HTMLFormElement>;
 
+const getCureentTimestamp = (): number => new Date().getTime()
+
 export const Form = ({ task, useTask, aNewTask }: Props) => {
   const handleSubmit = (e: HandleSubmitChange) => {
     e.preventDefault()
 
     if (task.title && task.description !== '') {
       aNewTask({
-        id: uuidv4(),
+        id: getCureentTimestamp(),
         title: task.title,
         description: task.description,
         completed: false
       })
-      useTask({
-        title: '',
-        description: ''
-      })
+      useTask(initialStateForm)
     }
   }
   const handleChange = ({ target }: HandleInputChange) => {

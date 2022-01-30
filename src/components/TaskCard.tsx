@@ -4,15 +4,16 @@ import { Task } from '../interfaces/Task.interface'
 
 interface Props {
   tasks: Task;
-  key: string;
+  setTasks: (tasks: Task) => void;
+  deleteTask: (id: number) => void;
 }
 
-export const TaskCard = ({ tasks, key }: Props) => {
+export const TaskCard = ({ tasks, setTasks, deleteTask }: Props) => {
   return (
     <DivCard>
       <h2>{tasks.title}</h2>
       <p> {tasks.description}</p>
-      <Button>Delete</Button>
+      <Button onClick={() => deleteTask(tasks.id)}>Delete</Button>
     </DivCard>
   )
 }
