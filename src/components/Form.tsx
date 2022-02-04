@@ -1,6 +1,7 @@
-import { ChangeEvent } from 'react'
-import styled from 'styled-components'
+import { ChangeEvent, useState } from 'react'
+import styled, { css } from 'styled-components'
 import { colors } from '../const/colors'
+import { device } from '../const/device'
 import { Task } from '../interfaces/Task.interface'
 import { Button } from './TaskCard'
 import { initialStateForm, Tareas } from './TaskForm'
@@ -16,6 +17,8 @@ type HandleInputChange = ChangeEvent<HTMLInputElement | HTMLTextAreaElement>;
 
 // Tipo de dato del evento submit
 type HandleSubmitChange = ChangeEvent<HTMLFormElement>;
+
+type HandleFormClick = ChangeEvent<HTMLFormElement>;
 
 const getCureentTimestamp = (): number => new Date().getTime()
 
@@ -33,6 +36,7 @@ export const Form = ({ task, useTask, aNewTask }: Props) => {
       useTask(initialStateForm)
     }
   }
+
   const handleChange = ({ target }: HandleInputChange) => {
     useTask({
       ...task,
@@ -40,8 +44,24 @@ export const Form = ({ task, useTask, aNewTask }: Props) => {
     })
   }
 
+  const [formStyle, setFormStyle] = useState({
+    validation: 'false'
+  })
+
+  const handleClickForm = () => {
+    setFormStyle({
+      ...formStyle,
+      validation: 'true'
+    })
+  }
+  console.log(formStyle)
+
   return (
-    <FormStyle onSubmit={handleSubmit}>
+    <FormStyle
+      onSubmit={handleSubmit}
+      onClick={handleClickForm}
+      formStyle={formStyle.validation}
+    >
       <InputTitle
         type="text"
         placeholder="Title"
@@ -65,6 +85,16 @@ export const Form = ({ task, useTask, aNewTask }: Props) => {
 const FormStyle = styled.form`
   display: flex;
   flex-direction: column;
+
+  @media ${device.desktopL} {
+    ${(props) =>
+      props.formStyle === 'true' &&
+      css`
+        input {
+          display: block;
+        }
+      `}
+  }
 `
 
 const InputTitle = styled.input`
@@ -75,6 +105,10 @@ const InputTitle = styled.input`
   color: ${colors.white0};
   margin-bottom: 8px;
   outline: none;
+
+  @media ${device.desktopL} {
+    display: none;
+  }
 `
 const TextArea = styled.textarea`
   appearance: none;
@@ -88,4 +122,10 @@ const TextArea = styled.textarea`
   overflow: auto;
   outline: none;
   resize: none;
+
+  @media ${device.desktopL} {
+    height: auto;
+    outline: normal;
+    overflow: normal;
+  }
 `

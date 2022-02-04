@@ -12,7 +12,7 @@ export const TaskCard = ({ tasks, setTasks, deleteTask }: Props) => {
   return (
     <DivCard>
       <h2>{tasks.title}</h2>
-      <p> {tasks.description}</p>
+      <div> {tasks.description}</div>
       <Button onClick={() => deleteTask(tasks.id)}>Delete</Button>
     </DivCard>
   )
@@ -23,7 +23,18 @@ export const DivCard = styled.div`
   background-color: ${colors.background1};
   border-radius: 6px;
   padding: 15px;
+  max-height: 420px;
   box-shadow: rgb(15 17 21 / 25%) 0px 4px 6px, rgb(15 17 21 / 10%) 0px 5px 7px;
+
+  h2 {
+    margin-bottom: 5px;
+  }
+
+  div {
+    overflow: auto;
+    text-overflow: ellipsis;
+    max-height: 300px;
+  }
 `
 
 export const Button = styled.button`

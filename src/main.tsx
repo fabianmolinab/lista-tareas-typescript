@@ -6,7 +6,7 @@ import { GlobalStyles } from './components/styles/GlobalStyles'
 ReactDOM.render(
   <React.StrictMode>
     <GlobalStyles />
-    <App title="App Typescript & React" subtitle="" />
+    <App title="" subtitle="" />
   </React.StrictMode>,
   document.getElementById('root')
 )

@@ -40,4 +40,9 @@ export const App = ({ title }: Props) => {
 }
 const Container = styled.main`
   display: flex;
+
+  @media (max-width: 400px) {
+    flex-direction: column;
+    margin: 0 10px;
+  }
 `
