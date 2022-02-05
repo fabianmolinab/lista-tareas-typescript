@@ -18,8 +18,6 @@ type HandleInputChange = ChangeEvent<HTMLInputElement | HTMLTextAreaElement>;
 // Tipo de dato del evento submit
 type HandleSubmitChange = ChangeEvent<HTMLFormElement>;
 
-type HandleFormClick = ChangeEvent<HTMLFormElement>;
-
 const getCureentTimestamp = (): number => new Date().getTime()
 
 export const Form = ({ task, useTask, aNewTask }: Props) => {
@@ -44,23 +42,30 @@ export const Form = ({ task, useTask, aNewTask }: Props) => {
     })
   }
 
-  const [formStyle, setFormStyle] = useState({
+  // Estado para cambiar el estilo del formulario
+  interface FormState {
+    validation: String;
+  }
+
+  const [formStyle, setFormStyle] = useState<FormState>({
     validation: 'false'
   })
+  // ------------------------------------------------------
 
-  const handleClickForm = () => {
-    setFormStyle({
-      ...formStyle,
-      validation: 'true'
-    })
+  const handleFocus = (): void => {
+    if (formStyle.validation === 'false') {
+      setFormStyle({
+        ...formStyle,
+        validation: 'true'
+      })
+    }
   }
-  console.log(formStyle)
 
   return (
     <FormStyle
       onSubmit={handleSubmit}
-      onClick={handleClickForm}
-      formStyle={formStyle.validation}
+      onFocus={handleFocus}
+      onBlur={() => setFormStyle({ validation: 'false' })}
     >
       <InputTitle
         type="text"
@@ -69,6 +74,7 @@ export const Form = ({ task, useTask, aNewTask }: Props) => {
         autoComplete="off"
         value={task.title}
         onChange={handleChange}
+        formStyle={formStyle.validation}
       />
       <TextArea
         placeholder="Add note"
@@ -77,7 +83,7 @@ export const Form = ({ task, useTask, aNewTask }: Props) => {
         value={task.description}
         onChange={handleChange}
       />
-      <Button send>Save</Button>
+      <ButtonStyle formStyle={formStyle.validation}>Save</ButtonStyle>
     </FormStyle>
   )
 }
@@ -85,16 +91,6 @@ export const Form = ({ task, useTask, aNewTask }: Props) => {
 const FormStyle = styled.form`
   display: flex;
   flex-direction: column;
-
-  @media ${device.desktopL} {
-    ${(props) =>
-      props.formStyle === 'true' &&
-      css`
-        input {
-          display: block;
-        }
-      `}
-  }
 `
 
 const InputTitle = styled.input`
@@ -106,10 +102,17 @@ const InputTitle = styled.input`
   margin-bottom: 8px;
   outline: none;
 
-  @media ${device.desktopL} {
+  @media ${device.mobileL} {
     display: none;
+
+    ${(props) =>
+      props.formStyle === 'true' &&
+      css`
+        display: block;
+      `}
   }
 `
+
 const TextArea = styled.textarea`
   appearance: none;
   background: transparent;
@@ -123,9 +126,33 @@ const TextArea = styled.textarea`
   outline: none;
   resize: none;
 
-  @media ${device.desktopL} {
+  @media ${device.mobileL} {
     height: auto;
-    outline: normal;
-    overflow: normal;
+    min-height: 20px;
+  }
+`
+
+const ButtonStyle = styled.button`
+  background-color: ${colors.frost0};
+  border: 1.5px solid ${colors.frost0};
+  border-radius: 6px;
+  color: ${colors.background1};
+  cursor: pointer;
+  font-size: 1em;
+  padding: 5px 15px;
+  margin-top: 10px;
+
+  &:hover {
+    font-weight: 700;
+  }
+
+  @media ${device.mobileL} {
+    display: none;
+
+    ${(props) =>
+      props.formStyle === 'true' &&
+      css`
+        display: block;
+      `}
   }
 `

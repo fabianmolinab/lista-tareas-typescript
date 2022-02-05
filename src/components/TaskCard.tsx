@@ -50,11 +50,4 @@ export const Button = styled.button`
   &:hover {
     font-weight: 700;
   }
-
-  ${(props) =>
-    props.send &&
-    css`
-      background-color: ${colors.frost0};
-      border: 1.5px solid ${colors.frost0};
-    `}
 `

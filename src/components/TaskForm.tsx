@@ -41,5 +41,6 @@ const DivContenedor = styled.div`
 
   @media ${device.mobileL} {
     width: 100%;
+    padding: 10px;
   }
 `
