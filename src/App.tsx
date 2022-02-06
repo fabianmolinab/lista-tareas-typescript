@@ -28,6 +28,7 @@ export const App = ({ title }: Props) => {
       })
     )
   }
+
   return (
     <>
       <Nav title={title} />
@@ -38,6 +39,7 @@ export const App = ({ title }: Props) => {
     </>
   )
 }
+
 const Container = styled.main`
   display: flex;
 

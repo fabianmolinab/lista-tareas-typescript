@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import { colors } from '../const/colors'
 import { device } from '../const/device'
 import { Task } from '../interfaces/Task.interface'
-import { Form } from './Form'
+import { Form } from './Form/Form'
 
 interface Props {
   aNewTask: (task: Task) => void;
