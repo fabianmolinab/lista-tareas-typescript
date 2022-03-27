@@ -29,6 +29,6 @@
     "react-masonry-css": "1.0.16",
     "styled-components": "5.3.3",
     "typescript": "4.5.5",
-    "vite": "2.7.13"
+    "vite": "2.8.4"
   }
 }

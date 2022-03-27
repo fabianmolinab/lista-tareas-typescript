@@ -1,4 +1,4 @@
-import { ChangeEvent, useState } from 'react'
+import { useState } from 'react'
 import { Task } from '../../interfaces/Task.interface'
 import { initialStateForm, Tareas } from '../TaskForm'
 import { HandleInputChange, HandleSubmitChange } from './Form.interfaces'
@@ -49,16 +49,17 @@ export const Form = ({ task, useTask, aNewTask }: Props) => {
         ...formStyle,
         validation: 'true'
       })
+    } else if (formStyle.validation === 'true') {
+      setFormStyle({
+        ...formStyle,
+        validation: 'false'
+      })
     }
   }
 
   console.log(formStyle.validation)
   return (
-    <FormStyle
-      onSubmit={handleSubmit}
-      onFocus={handleFocus}
-      onBlur={() => setFormStyle({ ...formStyle, validation: 'false' })}
-    >
+    <FormStyle onSubmit={handleSubmit} onFocus={handleFocus}>
       <InputTitle
         type="text"
         placeholder="Title"
@@ -68,6 +69,9 @@ export const Form = ({ task, useTask, aNewTask }: Props) => {
         onChange={handleChange}
         formStyle={formStyle.validation}
       />
+
+      <button onClick={handleFocus}>-</button>
+
       <TextArea
         placeholder="Add note"
         autoComplete="off"
@@ -75,6 +79,7 @@ export const Form = ({ task, useTask, aNewTask }: Props) => {
         value={task.description}
         onChange={handleChange}
       />
+
       <ButtonStyle formStyle={formStyle.validation}>Save</ButtonStyle>
     </FormStyle>
   )

@@ -11,8 +11,8 @@ interface Props {
 export const TaskCard = ({ tasks, setTasks, deleteTask }: Props) => {
   return (
     <DivCard>
-      <h2>{tasks.title}</h2>
-      <div> {tasks.description}</div>
+      <h2> {tasks.title} </h2>
+      <div> {tasks.description} </div>
       <Button onClick={() => deleteTask(tasks.id)}>Delete</Button>
     </DivCard>
   )

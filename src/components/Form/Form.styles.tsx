@@ -20,8 +20,8 @@ export const InputTitle = styled.input`
     display: none;
 
     ${(props) =>
-    props.formStyle === 'true' &&
-    css`
+      props.formStyle === 'true' &&
+      css`
         display: block;
       `}
   }
@@ -41,31 +41,30 @@ export const TextArea = styled.textarea`
 
   @media ${device.mobileL} {
     height: auto;
-    min-height: 20px;
   }
 `
 
 export const ButtonStyle = styled.button`
-background-color: ${colors.frost0};
-border: 1.5px solid ${colors.frost0};
-border-radius: 6px;
-color: ${colors.background1};
-cursor: pointer;
-font-size: 1em;
-padding: 5px 15px;
-margin-top: 10px;
+  background-color: ${colors.frost0};
+  border: 1.5px solid ${colors.frost0};
+  border-radius: 6px;
+  color: ${colors.background1};
+  cursor: pointer;
+  font-size: 1em;
+  padding: 5px 15px;
+  margin-top: 10px;
 
-&:hover {
-  font-weight: 700;
-}
+  &:hover {
+    font-weight: 700;
+  }
 
-@media ${device.mobileL} {
-  display: none;
+  @media ${device.mobileL} {
+    display: none;
 
-  ${(props) =>
-    props.formStyle === 'true' &&
-    css`
-      display: block;
-    `}
-}
+    ${(props) =>
+      props.formStyle === 'true' &&
+      css`
+        display: block;
+      `}
+  }
 `
