@@ -1,7 +1,7 @@
-import { useState } from 'react'
+import { ChangeEvent, useState } from 'react'
 import { Task } from '../../interfaces/Task.interface'
 import { initialStateForm, Tareas } from '../TaskForm'
-import { HandleInputChange, HandleSubmitChange } from './Form.interfaces'
+import { HandleEnterPress, HandleInputChange, HandleSubmitChange } from './Form.interfaces'
 import { ButtonStyle, FormStyle, InputTitle, TextArea } from './Form.styles'
 
 interface Props {
@@ -15,7 +15,7 @@ export const Form = ({ task, useTask, aNewTask }: Props) => {
   const handleSubmit = (e: HandleSubmitChange) => {
     e.preventDefault()
 
-    if (task.title && task.description !== '') {
+    if (task.description !== '') {
       aNewTask({
         id: getCureentTimestamp(),
         title: task.title,
@@ -33,33 +33,20 @@ export const Form = ({ task, useTask, aNewTask }: Props) => {
     })
   }
 
-  // Estado para cambiar el estilo del formulario
-  interface FormState {
-    validation: String;
-  }
-
-  const [formStyle, setFormStyle] = useState<FormState>({
-    validation: 'false'
-  })
-  // ------------------------------------------------------
-
-  const handleFocus = (): void => {
-    if (formStyle.validation === 'false') {
-      setFormStyle({
-        ...formStyle,
-        validation: 'true'
-      })
-    } else if (formStyle.validation === 'true') {
-      setFormStyle({
-        ...formStyle,
-        validation: 'false'
-      })
+  const handleEnterPress = (event: HandleEnterPress):void => {
+    if (task.description !== '') {
+      if (event.key === 'Enter') {
+        event.preventDefault()
+        event.stopPropagation()
+        handleSubmit(event)
+        console.log(event)
+      }
     }
   }
 
-  console.log(formStyle.validation)
   return (
-    <FormStyle onSubmit={handleSubmit} onFocus={handleFocus}>
+    <FormStyle onSubmit={handleSubmit}>
+
       <InputTitle
         type="text"
         placeholder="Title"
@@ -67,10 +54,7 @@ export const Form = ({ task, useTask, aNewTask }: Props) => {
         autoComplete="off"
         value={task.title}
         onChange={handleChange}
-        formStyle={formStyle.validation}
       />
-
-      <button onClick={handleFocus}>-</button>
 
       <TextArea
         placeholder="Add note"
@@ -78,9 +62,10 @@ export const Form = ({ task, useTask, aNewTask }: Props) => {
         name="description"
         value={task.description}
         onChange={handleChange}
+        onKeyPress={handleEnterPress}
       />
 
-      <ButtonStyle formStyle={formStyle.validation}>Save</ButtonStyle>
+      <ButtonStyle >Save</ButtonStyle>
     </FormStyle>
   )
 }

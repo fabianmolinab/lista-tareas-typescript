@@ -16,15 +16,6 @@ export const InputTitle = styled.input`
   margin-bottom: 8px;
   outline: none;
 
-  @media ${device.mobileL} {
-    display: none;
-
-    ${(props) =>
-      props.formStyle === 'true' &&
-      css`
-        display: block;
-      `}
-  }
 `
 export const TextArea = styled.textarea`
   appearance: none;

@@ -1,14 +1,10 @@
 import styled from 'styled-components'
 import { colors } from '../const/colors'
 
-interface Props {
-  title?: string;
-}
-
-export const Nav = ({ title }: Props) => {
+export const Nav = () => {
   return (
     <NavStyle>
-      <div>{title && <Title>{title}</Title>}</div>
+      <Title>App List </Title>
     </NavStyle>
   )
 }

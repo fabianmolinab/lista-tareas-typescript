@@ -5,12 +5,7 @@ import { TaskForm } from './components/TaskForm'
 import { TaskList } from './components/TaskList'
 import { Task } from './interfaces/Task.interface'
 
-interface Props {
-  title?: string;
-  subtitle?: string;
-}
-
-export const App = ({ title }: Props) => {
+export const App = () => {
   const [tasks, setTasks] = useState<Task[]>([])
 
   // Funcion para añadir una nueva tarea
@@ -25,13 +20,14 @@ export const App = ({ title }: Props) => {
         if (task.id !== id) {
           return task
         }
+        return task
       })
     )
   }
 
   return (
     <>
-      <Nav title={title} />
+      <Nav />
       <Container>
         <TaskForm aNewTask={aNewTask} />
         <TaskList tasks={tasks} setTasks={setTasks} deleteTask={deleteTask} />
