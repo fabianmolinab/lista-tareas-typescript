@@ -20,17 +20,15 @@ export const App = () => {
         if (task.id !== id) {
           return task
         }
-        return task
       })
     )
   }
-
   return (
     <>
       <Nav />
       <Container>
         <TaskForm aNewTask={aNewTask} />
-        <TaskList tasks={tasks} setTasks={setTasks} deleteTask={deleteTask} />
+        <TaskList tasks={tasks} deleteTask={deleteTask} />
       </Container>
     </>
   )

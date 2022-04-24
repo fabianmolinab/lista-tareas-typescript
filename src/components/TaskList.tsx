@@ -4,7 +4,6 @@ import { TaskCard } from './TaskCard'
 
 interface Props {
   tasks: Task[];
-  setTasks: (tasks: Task) => void;
   deleteTask: (id: number) => void;
 }
 
@@ -23,12 +22,7 @@ export const TaskList = ({ tasks, setTasks, deleteTask }: Props) => {
       columnClassName="contenedor-grid-columns"
     >
       {tasks.map((task) => (
-        <TaskCard
-          tasks={task}
-          key={task.id}
-          setTasks={setTasks}
-          deleteTask={deleteTask}
-        />
+        <TaskCard tasks={task} key={task.id} deleteTask={deleteTask} />
       ))}
     </Mansory>
   )

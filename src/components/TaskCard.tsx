@@ -4,11 +4,10 @@ import { Task } from '../interfaces/Task.interface'
 
 interface Props {
   tasks: Task;
-  setTasks: (tasks: Task) => void;
   deleteTask: (id: number) => void;
 }
 
-export const TaskCard = ({ tasks, setTasks, deleteTask }: Props) => {
+export const TaskCard = ({ tasks, deleteTask }: Props) => {
   return (
     <DivCard>
       <h2> {tasks.title} </h2>

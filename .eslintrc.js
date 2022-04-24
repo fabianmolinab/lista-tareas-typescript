@@ -29,6 +29,7 @@ module.exports = {
     'react/prop-types': RULES.OFF,
     'react/jsx-uses-react': RULES.ERROR,
     'react/jsx-uses-vars': RULES.ERROR,
+    'no-console': RULES.WARN,
     'sort-imports': [
       'error',
       {
