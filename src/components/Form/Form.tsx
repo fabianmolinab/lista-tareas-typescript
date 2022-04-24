@@ -1,4 +1,3 @@
-import { ChangeEvent, useState } from 'react'
 import { Task } from '../../interfaces/Task.interface'
 import { initialStateForm, Tareas } from '../TaskForm'
 import { HandleEnterPress, HandleInputChange, HandleSubmitChange } from './Form.interfaces'
@@ -33,13 +32,23 @@ export const Form = ({ task, useTask, aNewTask }: Props) => {
     })
   }
 
-  const handleEnterPress = (event: HandleEnterPress):void => {
+  // Accion cuando se presiona enter en el input
+
+  const handleEnterPress = (e: HandleEnterPress) => {
     if (task.description !== '') {
-      if (event.key === 'Enter') {
-        event.preventDefault()
-        event.stopPropagation()
-        handleSubmit(event)
-        console.log(event)
+      if (e.key === 'Enter') {
+        e.preventDefault()
+
+        e.stopPropagation()
+
+        aNewTask({
+          id: getCureentTimestamp(),
+          title: task.title,
+          description: task.description,
+          completed: false
+        })
+
+        useTask(initialStateForm)
       }
     }
   }
@@ -65,7 +74,7 @@ export const Form = ({ task, useTask, aNewTask }: Props) => {
         onKeyPress={handleEnterPress}
       />
 
-      <ButtonStyle >Save</ButtonStyle>
+      <ButtonStyle type='submit'>Save</ButtonStyle>
     </FormStyle>
   )
 }
