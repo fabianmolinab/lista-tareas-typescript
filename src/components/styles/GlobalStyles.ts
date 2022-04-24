@@ -1,4 +1,5 @@
 import { createGlobalStyle } from 'styled-components'
+import { device } from '../../const/device'
 
 export const GlobalStyles = createGlobalStyle`
   &* {
@@ -23,6 +24,10 @@ export const GlobalStyles = createGlobalStyle`
   .contenedor-grid {
     display: flex;
     width: 100%;
+
+    @media ${device.mobileL} {
+    margin-top: 10px 
+  }
   }
 
   .contenedor-grid-columns {
