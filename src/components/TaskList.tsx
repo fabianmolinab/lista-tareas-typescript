@@ -7,7 +7,7 @@ interface Props {
   deleteTask: (id: number) => void;
 }
 
-export const TaskList = ({ tasks, setTasks, deleteTask }: Props) => {
+export const TaskList = ({ tasks, deleteTask }: Props) => {
   const breakpointColumnsObj = {
     default: 4,
     1100: 3,

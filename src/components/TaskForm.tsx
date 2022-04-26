@@ -6,7 +6,7 @@ import { Task } from '../interfaces/Task.interface'
 import { Form } from './Form/Form'
 
 interface Props {
-  aNewTask: (task: Task) => void;
+  aNewTask: (task: Task) => void
 }
 
 export interface Tareas {

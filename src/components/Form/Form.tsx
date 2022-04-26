@@ -1,12 +1,14 @@
+// eslint-disable-next-line no-use-before-define
+import { Dispatch, SetStateAction } from 'react'
 import { Task } from '../../interfaces/Task.interface'
 import { initialStateForm, Tareas } from '../TaskForm'
 import { HandleEnterPress, HandleInputChange, HandleSubmitChange } from './Form.interfaces'
 import { ButtonStyle, FormStyle, InputTitle, TextArea } from './Form.styles'
 
 interface Props {
-  task: Tareas;
-  useTask: (task: Tareas) => void;
-  aNewTask: (task: Task) => void;
+  task: Tareas
+  useTask: Dispatch<SetStateAction<Tareas>>
+  aNewTask: (task: Task) => void
 }
 const getCureentTimestamp = (): number => new Date().getTime()
 
