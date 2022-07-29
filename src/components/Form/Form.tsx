@@ -1,5 +1,5 @@
 // eslint-disable-next-line no-use-before-define
-import { Dispatch, SetStateAction } from 'react'
+import { Dispatch, FC, SetStateAction } from 'react'
 import { Task } from '../../interfaces/Task.interface'
 import { initialStateForm, Tareas } from '../TaskForm'
 import { HandleEnterPress, HandleInputChange, HandleSubmitChange } from './Form.interfaces'
@@ -12,7 +12,7 @@ interface Props {
 }
 const getCureentTimestamp = (): number => new Date().getTime()
 
-export const Form = ({ task, useTask, aNewTask }: Props) => {
+export const Form: FC<Props> = ({ task, useTask, aNewTask }) => {
   const handleSubmit = (e: HandleSubmitChange) => {
     e.preventDefault()
 

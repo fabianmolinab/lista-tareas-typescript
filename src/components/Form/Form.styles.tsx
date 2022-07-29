@@ -1,4 +1,4 @@
-import styled, { css } from 'styled-components'
+import styled from 'styled-components'
 import { colors } from '../../const/colors'
 import { device } from '../../const/device'
 
@@ -15,7 +15,6 @@ export const InputTitle = styled.input`
   color: ${colors.white0};
   margin-bottom: 8px;
   outline: none;
-
 `
 export const TextArea = styled.textarea`
   appearance: none;
@@ -51,11 +50,5 @@ export const ButtonStyle = styled.button`
 
   @media ${device.mobileL} {
     display: none;
-
-    ${(props) =>
-      props.formStyle === 'true' &&
-      css`
-        display: block;
-      `}
   }
 `
