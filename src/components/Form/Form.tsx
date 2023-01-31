@@ -1,4 +1,3 @@
-// eslint-disable-next-line no-use-before-define
 import { Dispatch, FC, SetStateAction } from 'react'
 import { Task } from '../../interfaces/Task.interface'
 import { initialStateForm, Tareas } from '../TaskForm'
@@ -10,6 +9,7 @@ interface Props {
   useTask: Dispatch<SetStateAction<Tareas>>
   aNewTask: (task: Task) => void
 }
+
 const getCureentTimestamp = (): number => new Date().getTime()
 
 export const Form: FC<Props> = ({ task, useTask, aNewTask }) => {

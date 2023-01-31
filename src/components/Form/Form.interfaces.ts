@@ -7,4 +7,6 @@ export type HandleInputChange = ChangeEvent<
 // Tipo de dato del evento submit
 export type HandleSubmitChange = FormEvent<HTMLFormElement>;
 
-export type HandleEnterPress = KeyboardEvent<HTMLFormElement | HTMLTextAreaElement>;
+export type HandleEnterPress = KeyboardEvent<
+  HTMLFormElement | HTMLTextAreaElement
+>;

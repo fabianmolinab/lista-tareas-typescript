@@ -1,4 +1,3 @@
-/* eslint-disable array-callback-return */
 import { useState } from 'react'
 import styled from 'styled-components'
 import { Nav } from './components/Nav'
@@ -8,7 +7,6 @@ import { Task } from './interfaces/Task.interface'
 
 export const App = () => {
   const [tasks, setTasks] = useState<Task[]>([])
-
   // Funcion para añadir una nueva tarea
   const aNewTask = (task: Task) => {
     setTasks([...tasks, task])

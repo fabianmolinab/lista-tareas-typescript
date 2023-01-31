@@ -22,7 +22,6 @@ export const TaskForm = ({ aNewTask }: Props) => {
   // Hook que actualiza el state del input y textarea
 
   const [task, useTask] = useState<Tareas>(initialStateForm)
-
   return (
     <DivContenedor>
       <Form task={task} useTask={useTask} aNewTask={aNewTask} />

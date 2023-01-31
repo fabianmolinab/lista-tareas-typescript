@@ -14,6 +14,7 @@ const NavStyle = styled.nav`
   background-color: ${colors.backgroud0};
   height: 60px;
 `
+
 const Title = styled.h1`
   color: ${colors.white0};
   text-decoration: none;
